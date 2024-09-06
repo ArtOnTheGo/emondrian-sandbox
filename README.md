@@ -1,4 +1,4 @@
-## Повторение ошибки There is probable a cycle
+## Повторение ошибки There's probably a cycle
 
 1) Выбираем Sales из Foodmart:
 
