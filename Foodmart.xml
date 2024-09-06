@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<Schema name="datamarts">
+    <Cube name="demo">
+        <Table name="dm_demo"/>
+        <Dimension name="Filter_Date">
+            <Hierarchy hasAll="true" allMemberName="All Dates">
+                <Level name="Year" column="year_number" uniqueMembers="true" type="Numeric"/>
+
+                <!-- Новый составной уровень для даты в формате YYYY-MM -->
+                <Level name="Year-Month" uniqueMembers="true">
+                    <KeyExpression>
+                        <SQL dialect="clickhouse">
+                            <![CDATA[
+                        toString(year_number) || '-' || lpad(toString(month_number), 2, '0')
+                    ]]>
+                        </SQL>
+                    </KeyExpression>
+                    <NameExpression>
+                        <SQL dialect="clickhouse">
+                            <![CDATA[
+                        toString(year_number) || '-' || lpad(toString(month_number), 2, '0')
+                    ]]>
+                        </SQL>
+                    </NameExpression>
+                </Level>
+            </Hierarchy>
+        </Dimension>
+        <Measure name="Value" column="value" aggregator="sum" formatString="#,###.00"/>
+        <Measure name="Value (Plan)" column="value_plan" aggregator="sum" formatString="#,###.00"/>
+
+        <CalculatedMember name="Value Achievement %" dimension="Measures">
+            <Formula>
+                <![CDATA[
+                    IIf(
+                        [Measures].[Value (Plan)] = 0,
+                        NULL,
+                        ([Measures].[Value] / [Measures].[Value (Plan)])
+                    )
+                ]]>
+            </Formula>
+            <FormatString>0.00%</FormatString>
+        </CalculatedMember>
+    </Cube>
+</Schema>
