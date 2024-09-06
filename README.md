@@ -1,35 +1,37 @@
-1) Выбираем Sales:
+## Повторение ошибки There is probable a cycle
 
-cube_selection.png
+1) Выбираем Sales из Foodmart:
 
-2) Выбираем Promotion Media в строки и меры Customer Count и Profit
+![cube_selection](./images/cube_selection.png)
 
-table_view.png
+2) Выбираем Promotion Media в строки и меры Customer Count и Profit:
 
-3) Из раздела Customers добавляем срез Country
+![table_view](./images/table_view.png)
 
-select_slice_option.png
+3) Из раздела Customers добавляем срез Country:
 
-4) Аналогично для State province и City
+![select_slice_option](./images/select_slice_option.png)
 
-final_slices_customer_view.png
+4) Аналогично для State province и City:
 
-5) Добавляем слайс на Gender
+![final_slices_customer_view](./images/final_customer_slices_view.png)
 
-slices_with_gender.png
+5) Добавляем слайс на Gender:
 
-6) Добавляем, например Promotions (у меня с разными получалось)
+![slices_with_gender](./images/slices_with_gender.png)
 
-promotions_slice.png
+6) Добавляем, например, Promotions (у меня с разными получалось):
 
-7) Включаем возможность множественного фильтра
+![promotions_slice](./images/promotion_slice.png)
 
-multiple_filter.png
+7) Включаем возможность множественного фильтра:
 
-8) Пытаемся убрать выделению с любого элемента
+![multiple_filter](./images/multiple_filter.png)
 
-remove_selection.png
+8) Пытаемся убрать выделение с любого элемента:
 
-9) Получаем ошибку
+![remove_selection](./images/remove_selection.png)
 
-error_message.png
+9) Получаем ошибку:
+
+![error_message](./images/error_message.png)
